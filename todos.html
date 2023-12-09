@@ -8,24 +8,22 @@
     </head>
     <body>
         <nav>
-            <ul>
-                <li>
-                    <a href="./index.html">Home</a>
-                </li>
-                <li>
-                    <a href="./todos.html">Todo Tasks</a>
-                </li>
-            </ul>
+            <div class="navbar">
+                <a href="./index.html">Home</a>
+                <a class="active" href="./todos.html">ToDo Tasks</a>
+            </div>
         </nav>
 
         <h1>Todo Tasks</h1>
 
-        <div id="category-dropdown">
-            <select id="todo-dropdown">
-                <option>-- Select One --</option>
-                <option>Search by Category</option>
-            </select>
+        <label for="user-dropdown">Select User:</label>
+        <select id="user-dropdown"></select>
+        <button id="user-id-submit">Get User Details</button>
+    
+        <div id="user-details" class="user-card">
+            <!-- User details will be displayed here -->
         </div>
+
 
         <script src="JS/todos.js"></script>
     </body>

@@ -1,19 +1,37 @@
 window.onload = () => {
-    fetch("http://localhost:8083/api/categories")
+    let submitBtn = document.getElementById("user-id-submit");
+    let userDropdown = document.getElementById("user-dropdown");
+
+    fetch("http://localhost:8083/api/todos")
         .then((res) => res.json())
-        .then((categories) => {
-            let populateDropdown = document.getElementById("dropdown");
+        .then((todos) => {
+            for (let todo of todos) {
+                // Convert userid to a string for consistency
+                let userIdString = todo.userid.toString();
 
-            categories.forEach((category) => {
-                // Create a div element for storing basic category details
-                let categoryCard = document.createElement("div");
-                // Add a class called card for styling
-                categoryCard.classList.add("card");
+                let optionEl = new Option(userIdString);
+                userDropdown.appendChild(optionEl);
+            }
+        });
 
-                // Interpolate each category card from our fetch request
-                categoryCard.innerHTML = `
-                <p>
-                `
+    submitBtn.onclick = () => {
+        // Use userDropdown.value to get the selected value
+        let selectedUserId = userDropdown.value;
+
+        // Fetch ToDo details for the selected user
+        fetch(`http://localhost:8083/api/todos/${selectedUserId}`)
+            .then((res) => res.json())
+            .then((todo) => {
+                let userDetails = document.getElementById("user-details");
+                userDetails.innerHTML = `
+                    <h3>User ToDo Details</h3>
+                    <p>Category: ${todo.category}</p>
+                    <p>Description: ${todo.description}</p>
+                    <p>Deadline: ${todo.deadline}</p>
+                    <p>Priority: ${todo.priority}</p>
+                    <p>Completed: ${todo.completed ? 'Yes' : 'No'}</p>
+                `;
             })
-        })
+            .catch(error => console.error('Error fetching ToDo details:', error));
+    };
 }
