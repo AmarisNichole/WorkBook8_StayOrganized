@@ -22,6 +22,10 @@ body {
 }
 
 .navbar a.active {
-    background-color: #15ddd3;
+    background-color: #cf690a;
     color: white;
+}
+
+h1 {
+    text-align: center;
 }
