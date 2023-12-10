@@ -26,3 +26,30 @@ body {
     color: white;
 }
 
+#image {
+    float: left;
+    padding: 25px;
+    width: 500px;
+}
+
+#image2 {
+    float: right;
+    left: 50px;
+}
+
+hr {
+    border: 1px solid;
+    margin: 20px 0;
+}
+
+#p1 {
+    padding: 50px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #15ddd3;
+}
+
+#p2 {
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #15ddd3;
+}
