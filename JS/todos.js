@@ -29,7 +29,7 @@ window.onload = () => {
     let selectedUserId = userDropdown.value;
 
     // Fetch ToDo details for the selected user
-    fetch(`http://localhost:8083/api/todos/byuser/${selectedUserId}`)
+    fetch(`http://localhost:8083/api/todos/${selectedUserId}`)
         .then((res) => res.json())
         .then((task) => {
             let userDetails = document.getElementById("user-details");
