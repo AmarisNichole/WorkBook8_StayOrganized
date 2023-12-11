@@ -29,3 +29,13 @@ body {
 h1 {
     text-align: center;
 }
+
+footer {
+    background-color: #cf690a;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
